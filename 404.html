@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="https://www.dropbox.com/scl/fi/67sq744w14rljwh7opqt2/Screenshot_20250728-005432-924.png?rlkey=au1uyrsocyd37euyns5fughi1&st=nh7g4y51&dl=1"/>
+    <link rel="shortcut icon" href="https://www.dropbox.com/scl/fi/67sq744w14rljwh7opqt2/Screenshot_20250728-005432-924.png?rlkey=au1uyrsocyd37euyns5fughi1&st=nh7g4y51&dl=1" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://www.dropbox.com/scl/fi/67sq744w14rljwh7opqt2/Screenshot_20250728-005432-924.png?rlkey=au1uyrsocyd37euyns5fughi1&st=nh7g4y51&dl=1">
+    <title>Cassiano Energia Solar - Energia Solar Residencial e Comercial | Lajeado e Região</title>
+    <meta name="description" content="Especialistas em energia solar no Vale Do Taquari. Economia de até 85% na conta de luz. Orçamento gratuito via WhatsApp. Instalação profissional e garantia de 25 anos. — Cassiano Energia Solar">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <style>
+        :root {
+            --primary-green: #ffc56e; #0ea5e9;
+            --primary-blue: #ffee57; #10b981;
+            --primary-yellow: #f59e0b;
+            --dark-blue: #0f172a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        
+        /* Navbar Glass Effect */
+        .navbar-glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Hero Slider */
+        .hero-slider {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .hero-slide.active {
+            opacity: 1;
+        }
+        
+        .hero-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /*background: linear-gradient(135deg, rgba(14, 165, 233, 0.8) 0%,  rgba(16, 185, 129, 0.8) 100%);*/
+            background: linear-gradient(135deg, rgba(0,0,128, 0.8) 0%, rgba(255,215,0,0.8) 100%);
+            
+        }
+        
+        /* Scroll Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .fade-up.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .fade-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .fade-left.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .fade-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .fade-right.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scale-up {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .scale-up.animate {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Floating Animation */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        /* Pulse Animation */
+        .pulse-custom {
+            animation: pulse-custom 2s infinite;
+        }
+        
+        @keyframes pulse-custom {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+        
+        /* Card Hover Effects */
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Button Glow */
+        .btn-glow {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-glow:hover::before {
+            left: 100%;
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        /* Video Container */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            
+    margin: 0 auto;
+    
+    
+    
+    overflow: hidden;
+    border-radius: 12px;
+    max-width: 100%;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            
+          
+    object-fit: contain; /* Preenche mantendo proporção */
+    display: block;
+        }
+        
+        /* Testimonial Cards */
+        .testimonial-card {
+            background: linear-gradient(145deg, #ffffff, #f8fafc);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Stats Counter */
+        .stats-counter {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+        }
+        
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            .hero-slider {
+                height: 220vh;
+            }
+            
+            .fade-up, .fade-left, .fade-right {
+                transform: translateY(30px);
+            }
+            .video-container {
+                padding-bottom: 16%; /* 16:9 aspect ratio */
+                height: 100%;
+                border-radius: 12px;
+            }
+            .video-container video {
+                border-radius: 12px;
+            }
+            
+            .fade-left, .fade-right {
+                transform: translateY(30px);
+            }
+            #btnact a {
+               width: 90vw;
+            }
+        }
+        
+        
+        /*Descktop Optimizations
+        se passar de 1024
+        */
+        @media (min-width: 2559px) {
+            #btnact a {
+               width: 20vw;
+            }
+        }
+        
+        /* Loading Animation */
+        .loading-spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--primary-blue);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body style="width: 100vw" class="bg-white">
+    <!-- Fixed WhatsApp Button -->
+    <a href="https://wa.me/+555181765321?text=Olá! Gostaria de um orçamento gratuito para energia solar." 
+       target="_blank" 
+       class="whatsapp-float bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl transition-all duration-300">
+        <i data-lucide="message-circle" class="w-8 h-8"></i>
+    </a>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+        <div class="container mx-auto px-4 py-4">
+            <!-- Desktop Navigation -->
+            <div class="hidden lg:flex items-center justify-center">
+                <div class="flex items-center space-between gap-12">
+                    <a href="#sobre" class="nav-link text-white hover:text-yellow-400 font-medium transition-all duration-300 relative group">
+                        Sobre Nós
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#servicos" class="nav-link text-white hover:text-yellow-400 font-medium transition-all duration-300 relative group">
+                        Serviços
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    
+                    <!-- Logo -->
+                    <div class="mx-8">
+                        <div class="relative">
+                            <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl rotate-12 flex items-center justify-center floating shadow-2xl">
+                                <div class="w-12 h-12 bg-white rounded-xl -rotate-12 flex items-center justify-center">
+                                    <img src="https://i.ibb.co/8gcXy2yF/Background-Eraser-20250726-124748756.png" alt="Background-Eraser-20250726-124748756" border="0">
+                                </div>
+                            </div>
+                            <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
+                                <!--span class="text-white font-bold text-sm bg-black/20 px-2 py-1 rounded-full backdrop-blur-sm">CASSIANO ENERGY</span-->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#cases" class="nav-link text-white hover:text-yellow-400 font-medium transition-all duration-300 relative group">
+                        Cases
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#contatos" class="nav-link text-white hover:text-yellow-400 font-medium transition-all duration-300 relative group">
+                        Contatos
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div class="lg:hidden flex items-center justify-between">
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg rotate-12 flex items-center justify-center">
+                        <div class="w-10 h-10 bg-white rounded-md -rotate-12 flex items-center justify-center">
+                            <img src="https://i.ibb.co/8gcXy2yF/Background-Eraser-20250726-124748756.png" alt="Background-Eraser-20250726-124748756" border="0">
+                        </div>
+                    </div>
+                    <span class="ml-3 text-white font-bold">CASSIANO ENERGIA SOLAR</span>
+                </div>
+                
+                <button id="mobile-menu-btn" class="text-white p-2">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="lg:hidden hidden mt-6 bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                <div class="flex flex-col space-y-4">
+                    <a href="#sobre" class="mobile-nav-link text-white hover:text-yellow-400 transition-colors py-2 border-b border-white/10">Sobre Nós</a>
+                    <a href="#servicos" class="mobile-nav-link text-white hover:text-yellow-400 transition-colors py-2 border-b border-white/10">Serviços</a>
+                    <a href="#cases" class="mobile-nav-link text-white hover:text-yellow-400 transition-colors py-2 border-b border-white/10">Cases</a>
+                    <a href="#contatos" class="mobile-nav-link text-white hover:text-yellow-400 transition-colors py-2">Contatos</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Image Slider -->
+    <section class="hero-slider relative">
+        <!-- Slide 1 -->
+        <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')"></div>
+        <!-- Slide 2 -->
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1497440001374-f26997328c1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=207id=""0&q=80')"></div>
+        <!-- Slide 3 -->
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')"></div>
+        
+        <!-- Hero Content -->
+        <div class="absolute inset-0 flex items-center justify-center z-10">
+            <div class="text-center text-white px-4 max-w-6xl mx-auto">
+                <div class="fade-up" style="transition-delay: 0.2s">
+                    <div class="mb-8">
+                        <div class="inline-flex items-center bg-white/10 backdrop-blur-md rounded-full px-6 py-3 mb-6 border border-white/20">
+                            <i data-lucide="zap" class="w-5 h-5 text-yellow-400 mr-2"></i>
+                            <span class="text-sm font-medium">Energia Solar Premium no Vale Do Taquari</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fade-up" style="transition-delay: 0.4s;">
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
+                        Economize até <span class="gradient-text" >85%</span><br> na sua conta de luz
+                    </h1>
+                    <p class="text-xl md:text-2xl font-light mb-8 max-w-4xl mx-auto opacity-90">
+                        Transforme a energia do sol em economia real para sua casa ou empresa. Instalação profissional, garantia de 25 anos e financiamento facilitado.
+                    </p>
+                </div>
+
+                <div class="fade-up" style="transition-delay: 0.6s">
+                    <div class="flex flex-col md:flex-row gap-4 justify-center items-center mb-12">
+                        <a href="https://wa.me/+555181765321?text=Quero um orçamento gratuito para energia solar!" 
+                           target="_blank"
+                           class="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 btn-glow shadow-2xl transform hover:scale-105 flex items-center">
+                            <i data-lucide="message-circle" class="w-6 h-6 mr-3"></i>
+                            Orçamento Grátis via WhatsApp
+                        </a>
+                        <button onclick="scrollToSection('sobre')" 
+                                class="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold py-4 px-8 rounded-full transition-all duration-300 flex items-center">
+                            <i data-lucide="play-circle" class="w-6 h-6 mr-3"></i>
+                            Saiba Como Funciona
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="fade-up" style="transition-delay: 0.8s">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
+                        <div class="text-center">
+                            <div class="stats-counter text-4xl md:text-5xl font-black text-yellow-400 mb-2" data-target="1200">0</div>
+                            <div class="text-sm md:text-base font-medium">Clientes que Confiaram e Compraram de Mim</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="stats-counter text-4xl md:text-5xl font-black text-green-400 mb-2" data-target="95">0</div>
+                            <div class="text-sm md:text-base font-medium">% Economia Média</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="stats-counter text-4xl md:text-5xl font-black text-blue-400 mb-2" data-target="25">0</div>
+                            <div class="text-sm md:text-base font-medium">Anos Garantia</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="stats-counter text-4xl md:text-5xl font-black text-yellow-400 mb-2" data-target="80">0</div>
+                            <div class="text-sm md:text-base font-medium">Clientes continuram a confiar na minha nova etapa</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+            <div class="animate-bounce">
+                <i data-lucide="chevron-down" class="w-8 h-8 text-white"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nós Section -->
+    <section id="sobre" class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="text-center mb-16 fade-up">
+                <div class="inline-flex items-center bg-blue-100 text-blue-600 rounded-full px-6 py-2 mb-6">
+                    <i data-lucide="info" class="w-5 h-5 mr-2"></i>
+                    <span class="font-semibold">Sobre Nossa Empresa</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-black text-gray-800 mb-6">
+                    Por que escolher a <span class="gradient-text">Cassiano Energia Solar</span>?
+                </h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto">
+                    Há mais de 10 anos transformando a energia do sol em economia real para nossos clientes no Vale Do Taquari e região. 
+                    Somos especialistas em energia solar fotovoltaica com certificações internacionais.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center mb-20">
+                <div class="fade-right">
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-8">Nossa Missão</h3>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+             Democratizar o acesso à energia solar limpa e renovável, proporcionando economia significativa 
+                        na conta de luz e contribuindo para um planeta mais sustentável. Cada projeto é único e 
+                        desenvolvido com tecnologia de ponta.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="check-circle" class="w-6 h-6 text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-2">Mais de 10 anos de experiência</h4>
+                                <p class="text-gray-600">Vim de uma empresa Pioneira em energia solar no Rio Grande Do Sul com milhares de projetos executados, meus mais de 1.200 clientes</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="award" class="w-6 h-6 text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-2">Certificações Internacionais</h4>
+                                <p class="text-gray-600">Equipe certificada com as melhores práticas do mercado mundial</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="shield-check" class="w-6 h-6 text-yellow-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-2">Garantia Estendida</h4>
+                                <p class="text-gray-600">25 anos de garantia nos painéis e 10 anos nos inversores</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fade-left">
+                    <div class="relative">
+                        <!-- Video Container -->
+                        <div class="video-container mb-8">
+                            <!--iframe src="https://www.dropbox.com/scl/fi/vgatjk1lwhz3hev7vqqvr/Cassiano-Energia-Solar.mp4?rlkey=erysd3a829wj73s77dmfyzz6z&st=w7sv02l1&dl=1" 
+                                    title="Premium Solar - Como Funciona" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen>
+                            </iframe-->
+                            <video style="width: 100%; height: auto; display: block;" id="video" controls>
+                            <source src="https://www.dropbox.com/scl/fi/ulnd04f62divk69o0gqvd/lv_0_20250726212700.mp4?rlkey=jyhpgypeufpql4e85f1u9y3s5&st=djy00orb&dl=1" type="video/mp4">    
+  Your browser does not support HTML5 video.
+</video>
+
+                        </div>
+                        
+                        <!-- Stats Cards -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-white p-6 rounded-2xl shadow-lg text-center card-hover">
+                                <div class="text-3xl font-black text-blue-600 mb-2">1200+</div>
+                                <div class="text-gray-600 font-medium">Projetos</div>
+                            </div>
+                            <div class="bg-white p-6 rounded-2xl shadow-lg text-center card-hover">
+                                <div class="text-3xl font-black text-green-600 mb-2">R$ 15M+</div>
+                                <div class="text-gray-600 font-medium">Economizados</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Localização -->
+            <div class="bg-white rounded-3xl p-8 md:p-12 shadow-2xl fade-up">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nossa Localização</h3>
+                    <p class="text-lg text-gray-600">Atendemos todo o Brasil</p>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="map-pin" class="w-6 h-6 text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 mb-2">Endereço Principal</h4>
+                                    <p class="text-gray-600">Rua Pedro Theobaldo Breidembach1315 - Conventos Lajeado RS - Rio Grande Do Sul - RS, 95906-380</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="phone" class="w-6 h-6 text-green-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 mb-2">Telefone</h4>
+                                    <p class="text-gray-600">+55 (51) 981765321</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="clock" class="w-6 h-6 text-yellow-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 mb-2">Horário de Atendimento</h4>
+                                    <p class="text-gray-600">Segunda à Sexta: 8h às 18h<br>Sábado: 8h às 12h</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="h-80 bg-gray-200 rounded-2xl flex items-center justify-center">
+                        <!--div class="text-center text-gray-500">
+                            <i data-lucide="map" class="w-16 h-16 mx-auto mb-4"></i>
+                            <p>Mapa Interativo</p>
+                            <p class="text-sm">Google Maps Integration</p>
+                        </div-->
+                        <iframe width="100%" height="100%" src="https://maps.google.com/maps?q=rs-lajeado-conventos-pedro-theobaldo-breitenbach-1315&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços Section -->
+    <section id="servicos" class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="text-center mb-16 fade-up">
+                <div class="inline-flex items-center bg-green-100 text-green-600 rounded-full px-6 py-2 mb-6">
+                    <i data-lucide="settings" class="w-5 h-5 mr-2"></i>
+                    <span class="font-semibold">Nossos Serviços</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-black text-gray-800 mb-6">
+                    Soluções completas em <span class="gradient-text">energia solar</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto">
+                    Do projeto à instalação, oferecemos um serviço completo e personalizado para cada cliente. 
+                    Tecnologia de ponta com o melhor custo-benefício do mercado.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Serviço 1 -->
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-3xl card-hover fade-up" style="transition-delay: 0.1s">
+                    <div class="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center mb-6 floating">
+                        <i data-lucide="home" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Energia Solar Residencial</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Sistemas personalizados para sua casa com economia de até 95% na conta de luz. 
+                        Projeto sob medida e instalação profissional.
+                    </p>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-3"></i>
+                            Análise técnica gratuita
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-3"></i>
+                            Projeto personalizado 3D (se necessário)
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-3"></i>
+                            Instalação em 1 dia
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-3"></i>
+                            Monitoramento via app
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Serviço 2 -->
+                <div class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-3xl card-hover fade-up" style="transition-delay: 0.2s">
+                    <div class="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center mb-6 floating">
+                        <i data-lucide="building" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Energia Solar Comercial</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Soluções para empresas que buscam reduzir custos operacionais e melhorar a sustentabilidade. 
+                        ROI garantido em até 4 anos.
+                    </p>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-3"></i>
+                            Análise de viabilidade
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-3"></i>
+                            Financiamento empresarial
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-3"></i>
+                            Instalação sem parar produção
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-3"></i>
+                            Relatórios de performance
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Serviço 3 -->
+                <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 p-8 rounded-3xl card-hover fade-up" style="transition-delay: 0.3s">
+                    <div class="w-16 h-16 bg-yellow-500 rounded-2xl flex items-center justify-center mb-6 floating">
+                        <i data-lucide="wrench" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Manutenção Preventiva</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Mantenha seu sistema sempre com máxima eficiência. Limpeza, inspeção e monitoramento 
+                        para garantir o melhor desempenho.
+                    </p>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-3"></i>
+                            Limpeza profissional
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-3"></i>
+                            Inspeção técnica
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-3"></i>
+                            Monitoramento 24/7
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-3"></i>
+                            Suporte técnico
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Serviço 4 -->
+                <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-3xl card-hover fade-up" style="transition-delay: 0.4s">
+                    <div class="w-16 h-16 bg-purple-500 rounded-2xl flex items-center justify-center mb-6 floating">
+                        <i data-lucide="calculator" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Consultoria Energética</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Análise completa do seu consumo energético para dimensionar o sistema ideal. 
+                        Simulação precisa de economia e retorno do investimento.
+                    </p>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-3"></i>
+                            Análise de consumo
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-3"></i>
+                            Simulação 3D do telhado
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-3"></i>
+                            Cálculo de ROI
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-3"></i>
+                            Relatório detalhado
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Serviço 5 -->
+                <div class="bg-gradient-to-br from-red-50 to-red-100 p-8 rounded-3xl card-hover fade-up" style="transition-delay: 0.5s">
+                    <div class="w-16 h-16 bg-red-500 rounded-2xl flex items-center justify-center mb-6 floating">
+                        <i data-lucide="file-text" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Documentação Completa</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Cuidamos de toda a burocracia junto à concessionária de energia. 
+                        Você não precisa se preocupar com nada.
+                    </p>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-3"></i>
+                            Projeto elétrico
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-3"></i>
+                            Homologação na concessionária
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-3"></i>
+                            ART do engenheiro
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-3"></i>
+                            Acompanhamento total
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Serviço 6 -->
+                <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 p-8 rounded-3xl card-hover fade-up" style="transition-delay: 0.6s">
+                    <div class="w-16 h-16 bg-indigo-500 rounded-2xl flex items-center justify-center mb-6 floating">
+                        <i data-lucide="credit-card" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Financiamento Solar</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Parcelamento em até 120x com as melhores taxas do mercado. 
+                        Parcela menor que sua economia mensal.
+                    </p>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-3"></i>
+                            Até 120 meses
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-3"></i>
+                            Taxas competitivas
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-3"></i>
+                            Aprovação em 24h
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-3"></i>
+                            Sem entrada
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="text-center fade-up">
+                <div class="bg-gradient-to-r from-blue-600 to-green-600 rounded-3xl p-12 text-white">
+                    <h3 class="text-3xl md:text-4xl font-bold mb-6">Pronto para começar a economizar?</h3>
+                    <p class="text-xl mb-8 opacity-90">Receba um orçamento personalizado gratuito em menos de 24 horas</p>
+                    <a href="https://wa.me/+555181765321?text=Quero calcular minha economia para instalação de placa solar!" 
+                       target="_blank"
+                       class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-4 px-8 rounded-full transition-all duration-300 btn-glow inline-flex items-center">
+                        <i data-lucide="calculator" class="w-6 h-6 mr-3"></i>
+                        Calcular Minha Economia
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cases Section -->
+    <section id="cases" class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="text-center mb-16 fade-up">
+                <div class="inline-flex items-center bg-yellow-100 text-yellow-600 rounded-full px-6 py-2 mb-6">
+                    <i data-lucide="star" class="w-5 h-5 mr-2"></i>
+                    <span class="font-semibold">Cases de Sucesso</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-black text-gray-800 mb-6">
+                    Projetos que <span class="gradient-text">transformaram vidas</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto">
+                    Conheça alguns dos nossos projetos mais importantes e os resultados incríveis que alcançamos para nossos clientes em todo o Vale Do Taquari.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8 mb-16">
+                <!-- Case 1 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-2xl card-hover fade-up" style="transition-delay: 0.1s">
+                    <div class="relative h-64">
+                        <img src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Casa Residencial com Painéis Solares" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                            Residencial
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Residência Jairo Hullmann</h3>
+                        <p class="text-gray-600 mb-6">
+                            Sistema de 8kWp instalado em Lajeado. Economia de 90% na conta de luz e payback em apenas 3,2 anos.
+                        </p>
+                        <div class="grid grid-cols-3 gap-4 mb-6">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-green-600">90%</div>
+                                <div class="text-sm text-gray-600">Economia</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-blue-600">8kWp</div>
+                                <div class="text-sm text-gray-600">Potência</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-yellow-600">3.2</div>
+                                <div class="text-sm text-gray-600">Anos ROI</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i data-lucide="map-pin" class="w-4 h-4 mr-2"></i>
+                            Conventos, Lajeado - RS
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 2 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-2xl card-hover fade-up" style="transition-delay: 0.2s">
+                    <div class="relative h-64">
+                        <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Empresa com Sistema Solar" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                            Comercial
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Indústria MAJO LACRETAG</h3>
+                        <p class="text-gray-600 mb-6">
+                            Sistema de 64kWp para indústria de tecnologia. Redução de 88% nos custos energéticos e melhoria na sustentabilidade.
+                        </p>
+                        <div class="grid grid-cols-3 gap-4 mb-6">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-green-600">88%</div>
+                                <div class="text-sm text-gray-600">Economia</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-blue-600">64kWp</div>
+                                <div class="text-sm text-gray-600">Potência</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-yellow-600">2.8</div>
+                                <div class="text-sm text-gray-600">Anos ROI</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i data-lucide="map-pin" class="w-4 h-4 mr-2"></i>
+                            Montanha, Lajeado - RS
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 3 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-2xl card-hover fade-up" style="transition-delay: 0.3s">
+                    <div class="relative h-64">
+                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Condomínio com Energia Solar" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                            Condomínio
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Ampliação Regis Brietzke</h3>
+                        <p class="text-gray-600 mb-6">
+                            Sistema de 2.8kWp para áreas comuns. Redução de 90% na conta de luz. Com 4 paineis 700w cada.
+                        </p>
+                        <div class="grid grid-cols-3 gap-4 mb-6">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-green-600">95%</div>
+                                <div class="text-sm text-gray-600">Economia</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-blue-600">2.8kWp</div>
+                                <div class="text-sm text-gray-600">Potência</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-yellow-600">4×700w</div>
+                                <div class="text-sm text-gray-600">Painéis</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i data-lucide="map-pin" class="w-4 h-4 mr-2"></i>
+                            Jardim Botânico, Lajeado - RS
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Depoimentos -->
+            <div class="fade-up">
+                <h3 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">
+                    O que nossos clientes dizem
+                </h3>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Depoimento 1 -->
+                    <div class="testimonial-card p-8 rounded-3xl shadow-lg">
+                        <div class="flex items-center mb-6">
+                            <div class="flex text-yellow-400 mr-4">
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            </div>
+                            <span class="text-sm text-gray-500">5.0</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 italic leading-relaxed">
+                            “Me arrependo de não ter colocado antes, além de economizar em casa, transfiro os créditos pra loja e abato as duas contas. De um total de R$1.100,00 hoje pago em torno de R$150,00”
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-green-500 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-bold">JH</span>
+                            </div>
+                            <div>
+                                <div class="font-bold text-gray-800">Jairo Hullmann</div>
+                                <div class="text-sm text-gray-500">Conventos - Lajeado JM MODAS</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Depoimento 2 -->
+                    <div class="testimonial-card p-8 rounded-3xl shadow-lg">
+                        <div class="flex items-center mb-6">
+                            <div class="flex text-yellow-400 mr-4">
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            </div>
+                            <span class="text-sm text-gray-500">5.0</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 italic leading-relaxed">
+                            “Instalamos na nossa empresa e a economia foi impressionante. Além de reduzir custos, 
+                            melhorou nossa imagem sustentável no mercado. Equipe muito profissional!”
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-blue-500 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-bold">MF</span>
+                            </div>
+                            <div>
+                                <div class="font-bold text-gray-800">Mauricio Frolich</div>
+                                <div class="text-sm text-gray-500">CEO - HOTFIX E MAJO LACRETAG</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Depoimento 3 -->
+                    <div class="testimonial-card p-8 rounded-3xl shadow-lg">
+                        <div class="flex items-center mb-6">
+                            <div class="flex text-yellow-400 mr-4">
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            </div>
+                            <span class="text-sm text-gray-500">5.0</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 italic leading-relaxed">
+                            “Atendimento excepcional desde o primeiro contato até a instalação”
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-bold">RB</span>
+                            </div>
+                            <div>
+                                <div class="font-bold text-gray-800">Ragis Brietzke</div>
+                                <div class="text-sm text-gray-500">Corretor de Imóveis - Lajeado</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contatos Section -->
+    <section id="contatos" class="py-20 bg-gradient-to-br from-blue-600 to-yellow-600 text-white relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: radial-gradient(circle at 25px 25px, white 2px, transparent 0); background-size: 50px 50px;"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 max-w-7xl relative z-10">
+            <div class="text-center mb-16 fade-up">
+                <div class="inline-flex items-center bg-white/20 backdrop-blur-md rounded-full px-6 py-2 mb-6 border border-white/30">
+                    <i data-lucide="phone" class="w-5 h-5 mr-2"></i>
+                    <span class="font-semibold">Entre em Contato</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-black mb-6">
+                    Pronto para <span class="text-yellow-400">economizar</span>?
+                </h2>
+                <p class="text-xl max-w-4xl mx-auto opacity-90 leading-relaxed">
+                    Receba um orçamento personalizado gratuito em menos de 24 horas. 
+                    Nossa equipe de especialistas está pronta para transformar sua conta de luz!
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Informações de Contato -->
+                <div style="width: 80vw" class="fade-right">
+                    <h3 class="text-3xl font-bold mb-8">Fale Conosco Agora</h3>
+
+                    <div class="space-y-8">
+                        <div class="flex items-start space-x-6">
+                            <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center flex-shrink-0 border border-white/30">
+                                <i data-lucide="map-pin" class="w-8 h-8"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl mb-2">Nosso Endereço</h4>
+                                <p class="opacity-90 text-lg">Rua Pedro Theobaldo Breidenbach, 1315 - Conventos</p>
+                                <p class="opacity-90 text-lg">Lajeado, Rio Grande Do Sul - RS, 95906-380</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-6">
+                            <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center flex-shrink-0 border border-white/30">
+                                <i data-lucide="phone" class="w-8 h-8"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl mb-2">Telefone & WhatsApp</h4>
+                                <p class="opacity-90 text-lg">+55 51 981765321</p>
+                                <p class="opacity-75 text-sm">Atendimento 24/7</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-6">
+                            <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center flex-shrink-0 border border-white/30">
+                                <i data-lucide="mail" class="w-8 h-8"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl mb-2">E-mail</h4>
+                                <p class="opacity-90 text-lg">cassianobergmann@gmail.com</p>
+                                <p class="opacity-75 text-sm">Resposta em até 2 horas</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-6">
+                            <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center flex-shrink-0 border border-white/30">
+                                <i data-lucide="clock" class="w-8 h-8"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl mb-2">Horário de Atendimento</h4>
+                                <p class="opacity-90 text-lg">Segunda à Sexta: 8h às 18h</p>
+                                <p class="opacity-90 text-lg">Sábado: 8h às 12h</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botões de Ação -->
+                    
+                    <div id="btnact" style="width: 40vw" class="mt-12 space-y-4">
+                        <a href="https://wa.me/+555181765321?text=Olá! Quero um orçamento gratuito para energia solar!" 
+                           target="_blank"
+                           class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 btn-glow flex items-center justify-center shadow-2xl transform hover:scale-105">
+                            <i data-lucide="message-circle" class="w-6 h-6 mr-3"></i>
+                            WhatsApp: Orçamento em 5 minutos
+                        </a>
+                        <a href="tel:+5551981765321" 
+                           class="bg-white/20 hover:bg-white/30 backdrop-blur-md text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 flex items-center justify-center border border-white/30">
+                            <i data-lucide="phone" class="w-6 h-6 mr-3"></i>
+                            Ligar Agora: +55 (51) 98176-5321
+                        </a>
+                    </div>
+                </div>
+                
+
+                <!-- Formulário de Contato -->
+                <div class="fade-left">
+                    <div class="bg-white/10 backdrop-blur-md p-8 md:p-12 rounded-3xl border border-white/20 shadow-2xl">
+                        <h3 class="text-3xl font-bold mb-8 text-center">Solicite seu Orçamento Gratuito</h3>
+
+                        <form  id="contactForm" class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-semibold mb-3">Nome Completo</label>
+                                    <input id="name" type="text" 
+                                           required 
+                                           class="w-full px-4 py-4 bg-white/20 border border-white/30 rounded-xl text-white placeholder-white/70 focus:ring-2 focus:ring-white/50 focus:border-transparent backdrop-blur-sm transition-all duration-300" 
+                                           placeholder="Seu nome completo">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold mb-3">Telefone/WhatsApp</label>
+                                    <input id="phone" type="tel" 
+                                           required 
+                                           class="w-full px-4 py-4 bg-white/20 border border-white/30 rounded-xl text-white placeholder-white/70 focus:ring-2 focus:ring-white/50 focus:border-transparent backdrop-blur-sm transition-all duration-300" 
+                                           placeholder="(51) 99999-9999">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold mb-3">E-mail</label>
+                                <input id="email" type="email" 
+                                       required 
+                                       class="w-full px-4 py-4 bg-white/20 border border-white/30 rounded-xl text-white placeholder-white/70 focus:ring-2 focus:ring-white/50 focus:border-transparent backdrop-blur-sm transition-all duration-300" 
+                                       placeholder="seumelhor@email.com">
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-semibold mb-3">Tipo de Imóvel</label>
+                                    <select id="propertyType" class="w-full px-4 py-4 bg-white/20 border border-white/30 rounded-xl text-white focus:ring-2 focus:ring-white/50 focus:border-transparent backdrop-blur-sm transition-all duration-300">
+                                        <option value="residencial" class="text-gray-800">Residencial</option>
+                                        <option value="comercial" class="text-gray-800">Comercial</option>
+                                        <option value="industrial" class="text-gray-800">Industrial</option>
+                                        <option value="condominio" class="text-gray-800">Condomínio</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold mb-3">Conta de Luz Mensal (R$)</label>
+                                    <input id="monthlyBill" type="number" 
+                                           class="w-full px-4 py-4 bg-white/20 border border-white/30 rounded-xl text-white placeholder-white/70 focus:ring-2 focus:ring-white/50 focus:border-transparent backdrop-blur-sm transition-all duration-300" 
+                                           placeholder="Ex: 350">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold mb-3">Mensagem (Opcional)</label>
+                                <textarea id="message" rows="4" 
+                                          class="w-full px-4 py-4 bg-white/20 border border-white/30 rounded-xl text-white placeholder-white/70 focus:ring-2 focus:ring-white/50 focus:border-transparent backdrop-blur-sm transition-all duration-300" 
+                                          placeholder="Conte-nos mais sobre seu projeto ou dúvidas..."></textarea>
+                            </div>
+
+                            <button type="submit" 
+                                    class="w-full bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-black font-bold py-4 px-8 rounded-xl transition-all duration-300 btn-glow shadow-2xl transform hover:scale-105 flex items-center justify-center">
+                                <i data-lucide="send" class="w-6 h-6 mr-3"></i>
+                                Solicitar Orçamento Gratuito
+                            </button>
+                        </form>
+
+                        <div class="mt-8 text-center">
+                            <p class="text-sm opacity-75">
+                                <i data-lucide="shield-check" class="w-4 h-4 inline mr-2"></i>
+                                Seus dados estão seguros conosco
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="grid md:grid-cols-4 gap-12">
+                <!-- Logo e Descrição -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-8">
+                        <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl rotate-12 flex items-center justify-center mr-6">
+                            <div class="w-12 h-12 bg-white rounded-xl -rotate-12 flex items-center justify-center">
+                                <img width="100" src="https://i.ibb.co/8gcXy2yF/Background-Eraser-20250726-124748756.png" alt="Background-Eraser-20250726-124748756" border="0">
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-bold">Cassiano Energia Solar</h3>
+                            <p class="text-gray-400">Energia Solar De Qualidade</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-8 text-lg leading-relaxed">
+                        Especialistas em energia solar fotovoltaica no Vale Do Taquari. Transformamos a luz do sol 
+                        em economia real para residências, empresas e condomínios há mais de 10 anos.
+                    </p>
+                    <div class="flex space-x-4">
+                        <div onclick="window.location.href='https://www.facebook.com/share/1QHVs7bByv/'" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors cursor-pointer">
+                            <i data-lucide="facebook" class="w-6 h-6"></i>
+                        </div>
+                        <div onclick="window.location.href='https://www.instagram.com/cassiano.energiasolar?igsh=MWs1bDdmZ3Z5Nzdvcg=='" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors cursor-pointer">
+                            <i data-lucide="instagram" class="w-6 h-6"></i>
+                        </div>
+                        <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors cursor-pointer">
+                            <i data-lucide="linkedin" class="w-6 h-6"></i>
+                        </div>
+                        <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors cursor-pointer">
+                            <i data-lucide="youtube" class="w-6 h-6"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Serviços -->
+                <div>
+                    <h4 class="text-xl font-bold mb-8">Nossos Serviços</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="hover:text-white transition-colors cursor-pointer flex items-center">
+                            <i data-lucide="home" class="w-4 h-4 mr-3"></i>
+                            Energia Solar Residencial
+                        </li>
+                        <li class="hover:text-white transition-colors cursor-pointer flex items-center">
+                            <i data-lucide="building" class="w-4 h-4 mr-3"></i>
+                            Energia Solar Comercial
+                        </li>
+                        <li class="hover:text-white transition-colors cursor-pointer flex items-center">
+                            <i data-lucide="wrench" class="w-4 h-4 mr-3"></i>
+                            Manutenção Preventiva
+                        </li>
+                        <li class="hover:text-white transition-colors cursor-pointer flex items-center">
+                            <i data-lucide="calculator" class="w-4 h-4 mr-3"></i>
+                            Consultoria Energética
+                        </li>
+                        <li class="hover:text-white transition-colors cursor-pointer flex items-center">
+                            <i data-lucide="credit-card" class="w-4 h-4 mr-3"></i>
+                            Financiamento Solar
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contato -->
+                <div>
+                    <h4 class="text-xl font-bold mb-8">Contato</h4>
+                    <div class="space-y-6 text-gray-400">
+                        <div class="flex items-start space-x-4">
+                            <i data-lucide="map-pin" class="w-5 h-5 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <p>Rua Pedro Theobaldo Breitenbach - 1315, Conventos, Lajeado - RS, 95906-380</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <i data-lucide="phone" class="w-5 h-5 flex-shrink-0"></i>
+                            <p>+55 (51) 98176-5321</p>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <i data-lucide="mail" class="w-5 h-5 flex-shrink-0"></i>
+                            <p>cassianobergmann@gmail.com</p>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <i data-lucide="clock" class="w-5 h-5 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <p>Segunda à Sexta: 8h às 18h</p>
+                                <p>Sábado: 8h às 12h</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-16 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-gray-400 mb-4 md:mb-0">
+                        <p>Todos os direitos reservados &copy; 2025 Desenvolvido por Diogo Coutinho Cassemiro</p>
+                    </div>
+                    <div class="flex space-x-6 text-gray-400 text-sm">
+                        <a href="#" class="hover:text-white transition-colors">Política de Privacidade</a>
+                        <a href="#" class="hover:text-white transition-colors">Termos de Uso</a>
+                        <a href="#" class="hover:text-white transition-colors">LGPD</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Hero Image Slider
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        
+        // Change slide every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        // Scroll Animations
+        function initScrollAnimations() {
+            const animatedElements = document.querySelectorAll('.fade-up, .fade-left, .fade-right, .scale-up');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Stats Counter Animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stats-counter');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        const duration = 2000;
+                        const step = target / (duration / 16);
+                        let current = 0;
+                        
+                        const timer = setInterval(() => {
+                            current += step;
+                            if (current >= target) {
+                                counter.textContent = target;
+                                clearInterval(timer);
+                            } else {
+                                counter.textContent = Math.floor(current);
+                            }
+                        }, 16);
+                        
+                        observer.unobserve(counter);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            counters.forEach(counter => {
+                observer.observe(counter);
+            });
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            if (window.scrollY > 100) {
+                navbar.classList.add('navbar-glass');
+                navLinks.forEach(link => {
+                    link.classList.remove('text-white');
+                    link.classList.add('text-gray-800');
+                });
+            } else {
+                navbar.classList.remove('navbar-glass');
+                navLinks.forEach(link => {
+                    link.classList.remove('text-gray-800');
+                    link.classList.add('text-white');
+                });
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Mobile nav links
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Smooth scroll function
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Navigation links smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Contact form submission
+       /* document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name') || 'Cliente';
+            const phone = formData.get('phone') || '';
+            const email = formData.get('email') || '';
+            const propertyType = formData.get('propertyType') || 'residencial';
+            const monthlyBill = formData.get('monthlyBill') || '';
+            const message = formData.get('message') || '';
+            
+            // Create WhatsApp message
+            let whatsappMessage = `Olá! Gostaria de um orçamento para energia solar.\n\n`;
+            whatsappMessage += `*Nome:* ${name}\n`;
+            whatsappMessage += `*Telefone:* ${phone}\n`;
+            whatsappMessage += `*E-mail:* ${email}\n`;
+            whatsappMessage += `*Tipo de Imóvel:* ${propertyType}\n`;
+            if (monthlyBill) whatsappMessage += `*Conta de Luz Mensal:* R$ ${monthlyBill}\n`;
+            if (message) whatsappMessage += `*Mensagem:* ${message}\n`;
+            
+            // Redirect to WhatsApp
+            const whatsappUrl = `https://wa.me/+555181765321?text=${encodeURIComponent(whatsappMessage)}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Show success message
+            alert('Redirecionando para WhatsApp! Aguarde nosso contato.');
+            
+            // Reset form
+            this.reset();
+        });
+        
+        */
+        
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Pega os dados do formulário usando os IDs diretamente (mais seguro)
+    const name = document.getElementById('name')?.value.trim() || 'Cliente';
+    const phone = document.getElementById('phone')?.value.trim() || '';
+    const email = document.getElementById('email')?.value.trim() || '';
+    const propertyType = document.getElementById('propertyType')?.value || 'residencial';
+    const monthlyBill = document.getElementById('monthlyBill')?.value.trim() || '';
+    const message = document.getElementById('message')?.value.trim() || '';
+
+    // Monta a mensagem
+    let whatsappMessage = `Olá! Gostaria de um orçamento para energia solar.\n\n`;
+    whatsappMessage += `*Nome:* ${name}\n`;
+    if (phone) whatsappMessage += `*Telefone:* ${phone}\n`;
+    if (email) whatsappMessage += `*E-mail:* ${email}\n`;
+    whatsappMessage += `*Tipo de Imóvel:* ${propertyType}\n`;
+    if (monthlyBill) whatsappMessage += `*Conta de Luz Mensal:* R$ ${monthlyBill}\n`;
+    if (message) whatsappMessage += `*Mensagem:* ${message}\n`;
+
+    // Cria URL do WhatsApp
+    const whatsappNumber = '555181765321'; // sem +
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+    // Abre o WhatsApp
+    window.open(whatsappUrl, '_blank');
+
+    // Mensagem de sucesso
+    alert('Redirecionando para WhatsApp! Aguarde nosso contato.');
+
+    // Limpa o formulário
+    this.reset();
+});
+        
+
+        // Initialize all animations when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initScrollAnimations();
+            animateCounters();
+            
+            // Add loading effect to buttons
+            const buttons = document.querySelectorAll('button, .btn-glow');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    if (!this.classList.contains('loading')) {
+                        this.classList.add('loading');
+                        setTimeout(() => {
+                            this.classList.remove('loading');
+                        }, 2000);
+                    }
+                });
+            });
+        });
+        
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const heroSlides = document.querySelectorAll('.hero-slide');
+            
+            heroSlides.forEach(slide => {
+                const speed = 0.5;
+                slide.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Add smooth hover effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card-hover');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
